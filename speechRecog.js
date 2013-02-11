@@ -30,7 +30,7 @@
 	      	this._speechRecognition.maxAlternatives = 1
 		}
 
-		sthis._speechRecognition._rg = this
+      	this._speechRecognition._rg = this
 
       	// Sets event listeners to the corresponding SpeechRecognition events 
 		this._speechRecognition.onresult = this._callbacks._resultListener
