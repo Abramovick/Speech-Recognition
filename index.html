@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple YouTube Controls Via Console</title>
+		<script type="text/javascript" src='pubSub.js'></script>
+		<script type="text/javascript" src='youTubePlayer.js'></script>
+		<script type="text/javascript" src='speechRecog.js'></script>
+	</head>
+	<body>
+		<div id='replace'></div>
+
+		<script type="text/javascript">
+			(function(VideoPlayer, SpeechRecog) {
+				var instance = window.APP.instance = new VideoPlayer('replace')
+
+				function onYouTubePlayerAPIReady () {
+					instance.init({
+						videoId: '3RFLdoJ2tRY',
+						height: '390',
+						width: '690'
+					})
+				}
+
+				window.onYouTubePlayerAPIReady = onYouTubePlayerAPIReady
+
+				var speechRecog = window.APP.rg = new SpeechRecog()
+				speechRecog.init({
+					continuous: true
+				})
+			})(window.APP.VideoPlayer, window.APP.SpeechRecog)
+		</script>
+		<script type="text/javascript" src='subscribedEvents.js'></script>
+	</body>
+</html>
