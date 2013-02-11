@@ -24,9 +24,7 @@
 				window.onYouTubePlayerAPIReady = onYouTubePlayerAPIReady
 
 				var speechRecog = window.APP.rg = new SpeechRecog()
-				speechRecog.init({
-					continuous: true
-				})
+				speechRecog.init()
 			})(window.APP.VideoPlayer, window.APP.SpeechRecog)
 		</script>
 		<script type="text/javascript" src='subscribedEvents.js'></script>
