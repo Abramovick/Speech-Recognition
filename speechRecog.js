@@ -25,7 +25,7 @@
 	      	this._speechRecognition.interimResults = config.interimResults
 	      	this._speechRecognition.maxAlternatives = config.maxAlternatives
 		} else {
-	      	this._speechRecognition.continuous = false
+	      	this._speechRecognition.continuous = true
 	      	this._speechRecognition.interimResults = false
 	      	this._speechRecognition.maxAlternatives = 1
 		}
