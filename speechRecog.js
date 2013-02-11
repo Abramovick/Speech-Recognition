@@ -18,13 +18,19 @@
 	 *	@return {Object} this - 'this' points to the constructor's instance
 	 */
 	SpeechRecog.prototype.init = function(config) {
-		SpeechRecog.prototype.speechRecognition = this._speechRecognition = window.SpeechRecognition ? new window.SpeechRecognition() : new window.webkitSpeechRecognition()
+		this._speechRecognition = window.SpeechRecognition ? new window.SpeechRecognition() : new window.webkitSpeechRecognition()
 
-      	this._speechRecognition.continuous = config.continuous || false
-      	this._speechRecognition.interimResults = config.interimResults || false
-      	this._speechRecognition.maxAlternatives = config.maxAlternatives || 1
+		if (config) {				
+	      	this._speechRecognition.continuous = config.continuous
+	      	this._speechRecognition.interimResults = config.interimResults
+	      	this._speechRecognition.maxAlternatives = config.maxAlternatives
+		} else {
+	      	this._speechRecognition.continuous = false
+	      	this._speechRecognition.interimResults = false
+	      	this._speechRecognition.maxAlternatives = 1
+		}
 
-      	this._speechRecognition._rg = this
+		sthis._speechRecognition._rg = this
 
       	// Sets event listeners to the corresponding SpeechRecognition events 
 		this._speechRecognition.onresult = this._callbacks._resultListener
